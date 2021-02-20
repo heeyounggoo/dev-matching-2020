@@ -1,0 +1,55 @@
+/* common style */
+.row {
+  display: flex;
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+}
+
+.col {
+  flex-basis: 0;
+  flex-grow: 1;
+  width: 100%;
+}
+
+/* layout */
+.app {
+  height: 100vh;
+  padding: 4rem;
+}
+
+header {
+  width: 100%;
+}
+
+header input {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 20px;
+  border: none;
+  background: transparent;
+  box-shadow: 0px 2px 10px rgb(0 0 0 / 15%);  
+}
+
+.card-list {
+  margin-top: 4rem;
+}
+
+.figure-info {
+  display: flex;
+  align-items: center;
+}
+
+.figure-info .user-img {
+  display: inline-block;
+}
+
+.figure-info .user-img img {
+  display: block;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.figure-info .user-name {
+  margin-left: 12px;
+}

@@ -16,10 +16,9 @@ export default async function api (methods, url, param) {
     
     const response = await fetch(`${API}/${url}?client_id=${KEY}${queryString}`, options)
 
-    console.log('[request]', response)
-
     if (response.status === 200) {
       const data = await response.json()
+      console.log('[request]', data)
       return data
     }
 
