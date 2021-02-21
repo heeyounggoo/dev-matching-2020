@@ -16,9 +16,3 @@ export function getItem (key) {
     return value
   }
 }
-
-// export function onChange (callback) {
-//   Storage.onChange = (e) => {
-//     callback(e)
-//   }
-// }

@@ -15,27 +15,30 @@ export default class CardList {
     $target.appendChild(this.el)
     
     this.getList()
-    this.setEvent()
   }
 
   getList () {
     api('get', 'search/photos', { query: 'cat', per_page: 20 })
       .then((data) => {
-        this.cardList = data.results
+        this.card = data.results
         this.render()
-        setItem('data', this.cardList)
+        setItem('data', this.card)
       })
   }
 
-  setEvent () {
-    window.addEventListener('storage', (e) => {
-      console.log(e)
-    })
+  setState (key, data) {
+    this[key] = data
+    this.render()
   }
 
   render () {
-    this.cardList.map(card => {
-      new Card(this.el, card)
-    })
+    this.el.innerHTML = ''
+    if (this.card.length > 0) {
+      this.card.map(item => {
+        new Card(this.el, item)
+      })
+    } else {
+      this.el.innerHTML = `<p>조회 결과가 없습니다.</p>`
+    }
   }
 }

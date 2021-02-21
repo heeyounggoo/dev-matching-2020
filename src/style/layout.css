@@ -6,9 +6,14 @@
 }
 
 .col {
-  flex-basis: 0;
-  flex-grow: 1;
-  width: 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+.col-4 {
+  flex: 0 0 calc(100%/3);
+  max-width: calc(100%/3);
+  /* margin: 1rem; */
 }
 
 /* layout */
@@ -34,9 +39,24 @@ header input {
   margin-top: 4rem;
 }
 
+.card {
+  display: flex;
+  position: relative;
+  height: 320px;
+}
+
+.card .card-img {
+  width: 100%;
+  object-fit: cover;
+}
+
 .figure-info {
   display: flex;
   align-items: center;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  padding: 1rem;
 }
 
 .figure-info .user-img {
@@ -52,4 +72,41 @@ header input {
 
 .figure-info .user-name {
   margin-left: 12px;
+  color: white;
+}
+
+.modal-wrapper {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.modal-wrapper.hidden {
+  display: none;
+}
+
+.modal-content {
+  width: 80%;
+  margin: 0 auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 20px;
+}
+
+.modal-content .modal-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-header .download-btn {
+  align-self: center;
+  padding: 12px;
+  border: 1px solid gray;
+  border-radius: 10px;
 }

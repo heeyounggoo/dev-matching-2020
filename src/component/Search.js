@@ -7,9 +7,11 @@ import {
 } from '../util/localStorage.js'
 
 export default class Search {
-  constructor ($target) {
+  constructor ({ target, data, onSearch }) {
+    this.card = data
+    this.onSearch = onSearch
     this.el = createElement('header')
-    $target.appendChild(this.el)
+    target.appendChild(this.el)
 
     this.render()
   }
@@ -21,7 +23,9 @@ export default class Search {
         api('get', 'search/photos', { query: this.search })
           .then((data) => {
             this.card = data.results
+            setItem('saerch', this.search)
             setItem('data', this.card)
+            this.onSearch(this.card)
           })
       }
     })

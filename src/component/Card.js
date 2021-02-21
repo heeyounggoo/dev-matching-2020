@@ -1,3 +1,4 @@
+import Modal from './Modal.js'
 import {
   createElement
 } from '../util/dom.js'
@@ -7,10 +8,19 @@ export default class Card {
     this.card = data
     this.user = data.user
     this.el = createElement('figure', {
-      class: 'card col'
+      class: 'card col col-4'
     })
     $target.appendChild(this.el)
     this.render()
+  }
+
+  setEvent () {
+    this.el.addEventListener('click', (e) => {
+      const modal = new Modal({
+        target: document.querySelector('.app'),
+        data: this.card
+      })
+    })
   }
 
   render () {
@@ -29,5 +39,6 @@ export default class Card {
     
     this.el.appendChild(cardImg)
     this.el.appendChild(figtureCaption)
+    this.setEvent()
   }
 }
